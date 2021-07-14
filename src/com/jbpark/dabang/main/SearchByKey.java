@@ -1,4 +1,4 @@
-package jbpark.address.java;
+package com.jbpark.dabang.main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+import com.jbpark.dabang.domain.AddressRow;
 import com.jbpark.utility.JLogger;
 
 public class SearchByKey {
@@ -109,12 +110,11 @@ public class SearchByKey {
 			}
 			//@formatter:on
 			logger.config(addrSearchKey.toString());
-			System.out.println(addrSearchKey);
-
-			String msg = "결과 행 수: " + getRoadAddrList(ps).size();
+			var addressList = getAddressList(ps);
+			String msg = "결과 행 수: " + addressList.size();
 			logger.config(msg);
 			System.out.println(msg);
-			getRoadAddrList(ps).forEach(System.out::println);
+			addressList.forEach(System.out::println);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -161,12 +161,12 @@ public class SearchByKey {
 	 * @param ps
 	 * @return 존재 때 true, 비 존재 때 false
 	 */
-	private List<RoadAddress> getRoadAddrList(PreparedStatement ps) {
-		var roadAddrList = new ArrayList<RoadAddress>();
+	private List<AddressRow> getAddressList(PreparedStatement ps) {
+		var roadAddrList = new ArrayList<AddressRow>();
 
 		try (ResultSet rs = ps.executeQuery()) {
 			while (rs != null && rs.next()) {
-				var roadAddress = new RoadAddress(rs.getString(1), rs.getString(2));
+				var roadAddress = new AddressRow(rs.getString(1), rs.getString(2));
 				roadAddrList.add(roadAddress);
 			}
 		} catch (SQLException e) {

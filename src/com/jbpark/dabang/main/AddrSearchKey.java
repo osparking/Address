@@ -1,4 +1,4 @@
-package jbpark.address.java;
+package com.jbpark.dabang.main;
 
 public class AddrSearchKey {
 	private String 도로_건물;

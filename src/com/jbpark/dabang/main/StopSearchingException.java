@@ -1,4 +1,4 @@
-package jbpark.address.java;
+package com.jbpark.dabang.main;
 
 
 public class StopSearchingException extends Exception  {
