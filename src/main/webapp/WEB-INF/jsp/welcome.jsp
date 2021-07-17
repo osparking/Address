@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-안녕하세요?
+즐거운 시간 보내세요...
 </body>
 </html>

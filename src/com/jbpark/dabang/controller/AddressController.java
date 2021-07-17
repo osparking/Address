@@ -13,7 +13,7 @@ import com.jbpark.dabang.main.AddrSearchKey;
 import com.jbpark.dabang.service.AddressService;
 
 @RestController
-@RequestMapping(value="search")
+@RequestMapping(value="rest")
 public class AddressController {
 	@Autowired
 	private AddressService addressService;
