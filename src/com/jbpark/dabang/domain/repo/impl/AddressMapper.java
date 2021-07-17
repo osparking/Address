@@ -1,0 +1,23 @@
+package com.jbpark.dabang.domain.repo.impl;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+
+import com.jbpark.dabang.domain.AddressRow;
+import com.jbpark.dabang.service.AddressService;
+public class AddressMapper implements RowMapper<AddressRow> {
+
+	@Override
+	public AddressRow mapRow(ResultSet rs, int rowNum)
+			throws SQLException {
+		AddressRow addressRow = new AddressRow();
+		addressRow.setNewZipcode(
+				Integer.toString(rs.getInt("새우편번호")));
+		addressRow.setRoadName(rs.getString("도로명주소"));
+		return addressRow;
+	}
+
+}
