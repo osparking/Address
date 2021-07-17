@@ -4,11 +4,12 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
+import org.mariadb.jdbc.MariaDbDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -16,14 +17,9 @@ import org.springframework.stereotype.Repository;
 import com.jbpark.dabang.domain.AddressRow;
 import com.jbpark.dabang.domain.repo.AddressRepository;
 import com.jbpark.dabang.main.AddrSearchKey;
-import com.jbpark.dabang.service.AddressService;
-import com.jbpark.utility.JLogger;
-import org.mariadb.jdbc.MariaDbDataSource;
 
-//@formatter:off
 @Repository
-public class MariaAddressRepository implements 
-							AddressRepository {
+public class MariaAddressRepository implements AddressRepository {
 	@Autowired
 	private NamedParameterJdbcTemplate jdbcTempleate;
 	
@@ -31,6 +27,7 @@ public class MariaAddressRepository implements
 	public List<AddressRow> read(AddrSearchKey addrSearchKey) {
 		String sql = getSelectStatememt();
 		
+		//@formatter:off
 		String sCond = null;
 		if (addrSearchKey.get건물본번() == null) {
 			// 건물명 혹은 (건물 본번 없는)도로명 
@@ -95,7 +92,7 @@ public class MariaAddressRepository implements
 		//@formatter:on
 	}
 
-	private static Logger logger = JLogger.getLogger(true);
+//	private static Logger logger = JLogger.getLogger(true);
 
 	public static void main(String[] args) {
 		DataSource dataSource = getMariaDbDataSource();
@@ -108,7 +105,7 @@ public class MariaAddressRepository implements
 		key.set건물본번("89");
 		
 		List<AddressRow> addresses = repo.read(key);
-		logger.config("주소 건수: " + addresses.size());
+//		logger.config("주소 건수: " + addresses.size());
 	}
 
 	private static DataSource getMariaDbDataSource() {
