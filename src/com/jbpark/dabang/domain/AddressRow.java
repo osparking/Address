@@ -8,6 +8,10 @@ public class AddressRow implements Serializable {
 	private String newZipcode;
 	private String roadName;
 
+	public AddressRow() {
+		super();
+	}
+
 	public AddressRow(String newZipcode, String roadName) {
 		super();
 		this.newZipcode = newZipcode;
