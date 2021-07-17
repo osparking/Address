@@ -1,6 +1,7 @@
 package com.jbpark.dabang.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class AddressRow implements Serializable {
 
@@ -34,9 +35,27 @@ public class AddressRow implements Serializable {
 		this.roadName = roadName;
 	}
 
+//	@Override
+//	public String toString() {
+//		return "(우편번호)" + newZipcode + " " + roadName;
+//	}
+
 	@Override
-	public String toString() {
-		return "(우편번호)" + newZipcode + " " + roadName;
+	public int hashCode() {
+		return Objects.hash(newZipcode, roadName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AddressRow other = (AddressRow) obj;
+		return Objects.equals(newZipcode, other.newZipcode)
+				&& Objects.equals(roadName, other.roadName);
 	}
 
 	public static void main(String[] args) {
