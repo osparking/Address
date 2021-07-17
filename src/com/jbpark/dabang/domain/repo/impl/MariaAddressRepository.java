@@ -29,6 +29,7 @@ public class MariaAddressRepository implements AddressRepository {
 		
 		//@formatter:off
 		String sCond = null;
+		
 		if (addrSearchKey.get건물본번() == null) {
 			// 건물명 혹은 (건물 본번 없는)도로명 
 			sCond = "(B.도로명 LIKE concat(:도로_건물,'%') "
@@ -39,7 +40,6 @@ public class MariaAddressRepository implements AddressRepository {
 					+ "AND A.건물본번 LIKE concat(:건물본번, '%')";
 		}
 		String sqlStatement = String.format(sql, sCond);
-
 		Map<String, Object> params = new HashMap<String, Object>();
 
 		params.put("도로_건물", addrSearchKey.get도로_건물());
@@ -47,11 +47,8 @@ public class MariaAddressRepository implements AddressRepository {
 			params.put("건물본번", addrSearchKey.get건물본번());
 		}
 		try {
-			AddressRowMapper addressRowMapper = new AddressRowMapper();
-			List<AddressRow> addressList = jdbcTempleate.query(
-					sqlStatement, params, addressRowMapper);
-
-			return addressList;
+			return jdbcTempleate.query(
+					sqlStatement, params, new AddressRowMapper());
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		}
