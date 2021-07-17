@@ -15,7 +15,7 @@ import com.jbpark.dabang.service.AddressService;
 @RestController
 @RequestMapping(value="search")
 public class AddressController {
-	@Autowired
+//	@Autowired
 	private AddressService addressService;
 	
 	@RequestMapping(value="/road_bldgName", method=RequestMethod.GET)
