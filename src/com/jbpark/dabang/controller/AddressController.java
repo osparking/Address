@@ -15,10 +15,10 @@ import com.jbpark.dabang.service.AddressService;
 @RestController
 @RequestMapping(value="search")
 public class AddressController {
-//	@Autowired
+	@Autowired
 	private AddressService addressService;
 	
-	@RequestMapping(value="/road_bldgName", method=RequestMethod.GET)
+	@RequestMapping(value="/{road_bldgName}", method=RequestMethod.GET)
 	public List<AddressRow> read(
 			@PathVariable(value="road_bldgName") String road_bldgName) {
 		AddrSearchKey searchKey = new AddrSearchKey();
