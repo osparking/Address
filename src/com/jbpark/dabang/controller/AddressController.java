@@ -18,14 +18,20 @@ public class AddressController {
 	@Autowired
 	private AddressService addressService;
 	
-	@RequestMapping(value="/{road_bldgName}", method=RequestMethod.GET)
+	//@formatter:off
+	@RequestMapping(value="/{road_bldgName}/{bldgNum}", 
+			method=RequestMethod.GET)
 	public List<AddressRow> read(
-			@PathVariable(value="road_bldgName") String road_bldgName) {
+			@PathVariable(value="road_bldgName") String road_bldgName,
+			@PathVariable(value="bldgNum") String bldgNum) {
 		AddrSearchKey searchKey = new AddrSearchKey();
-		searchKey.set도로_건물(road_bldgName);
-		var addressList = addressService.read(searchKey);
 		
-		return addressList;
+		searchKey.set도로_건물(road_bldgName);
+		if (bldgNum != null && bldgNum.trim().length() > 0) {
+			searchKey.set건물본번(bldgNum.trim());
+		}
+		
+		return addressService.read(searchKey);
 	}
 
 }
