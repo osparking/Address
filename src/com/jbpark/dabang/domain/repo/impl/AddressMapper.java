@@ -4,10 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import com.jbpark.dabang.domain.AddressRow;
-import com.jbpark.dabang.service.AddressService;
 public class AddressMapper implements RowMapper<AddressRow> {
 
 	@Override
