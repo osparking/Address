@@ -7,7 +7,7 @@
 	<artifactId>addresssearch</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>addresssearch</name>
+	<name>address</name>
 	<properties>
 		<org.springframework.version>5.2.8.RELEASE</org.springframework.version>
 		<maven.compiler.source>1.11</maven.compiler.source>
