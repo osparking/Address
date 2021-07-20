@@ -19,11 +19,12 @@ public class AddressController {
 	private AddressService addressService;
 	
 	//@formatter:off
-	@RequestMapping(value="/{road_bldgName}/{bldgNum}", 
+	@RequestMapping(value={"/{road_bldgName}",
+			"/{road_bldgName}/{bldgNum}"}, 
 			method=RequestMethod.GET)
 	public List<AddressRow> read(
-			@PathVariable(value="road_bldgName") String road_bldgName,
-			@PathVariable(value="bldgNum") String bldgNum) {
+			@PathVariable(name="road_bldgName") String road_bldgName,
+			@PathVariable(name="bldgNum", required = false) String bldgNum) {
 		AddrSearchKey searchKey = new AddrSearchKey();
 		
 		searchKey.set도로_건물(road_bldgName);
