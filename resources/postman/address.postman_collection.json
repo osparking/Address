@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "97f49a86-c16c-4ccd-bd63-2dbd584c95f1",
+		"name": "address",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "?roadBldgName=세진",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"결과 코드 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"결과 행 수 2 확인\", function() {\r",
+							"    const response = pm.response.json();\r",
+							"    console.log(response.length);\r",
+							"    pm.expect(response.length).to.be.equal(2);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?roadBldgName=세진",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "roadBldgName",
+							"value": "세진"
+						}
+					]
+				},
+				"description": "road name with building main number"
+			},
+			"response": []
+		},
+		{
+			"name": "?roadBldgName=덕영대로&bldgNum=89",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"결과 코드 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"결과 행 수 5 확인\", function() {\r",
+							"    const response = pm.response.json();\r",
+							"    console.log(response.length);\r",
+							"    pm.expect(response.length).to.be.equal(5);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?roadBldgName=덕영대로&bldgNum=89",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "roadBldgName",
+							"value": "덕영대로"
+						},
+						{
+							"key": "bldgNum",
+							"value": "89"
+						}
+					]
+				},
+				"description": "road name with building main number"
+			},
+			"response": []
+		},
+		{
+			"name": "?roadBldgName=덕영대로895",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"결과 코드 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"결과 행 수 42 확인\", function() {\r",
+							"    const response = pm.response.json();\r",
+							"    console.log(response.length);\r",
+							"    pm.expect(response.length).to.be.equal(42);\r",
+							"})\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?roadBldgName=덕영대로895",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "roadBldgName",
+							"value": "덕영대로895"
+						}
+					]
+				},
+				"description": "road name with building main number"
+			},
+			"response": []
+		},
+		{
+			"name": "?roadBldgName=세진브",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"결과 코드 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"결과 행 수 1 확인\", function() {\r",
+							"    const response = pm.response.json();\r",
+							"    console.log(response.length);\r",
+							"    pm.expect(response.length).to.be.equal(1);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?roadBldgName=세진브",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "roadBldgName",
+							"value": "세진브"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "?roadBldgName=덕영대로&bldgNum=899",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?roadBldgName=덕영대로&bldgNum=899",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "roadBldgName",
+							"value": "덕영대로"
+						},
+						{
+							"key": "bldgNum",
+							"value": "899",
+							"description": "결과 : 1"
+						}
+					]
+				},
+				"description": "899는 세진브론즈빌 건물 본번\n결과: 1 행 예상됨."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://172.30.1.17:8080/address_gg/rest/read"
+		}
+	]
+}
