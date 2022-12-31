@@ -16,41 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `단지주소`
---
-
-DROP TABLE IF EXISTS `단지주소`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `단지주소` (
-  `단지번호` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `관리번호` decimal(25,0) NOT NULL,
-  `우편번호` mediumint(9) DEFAULT NULL COMMENT '백만저장 용량',
-  `도로명주소` varchar(100) DEFAULT NULL COMMENT '경기도 수원시 팔달구 권광로364번길 7-2(우만동,현대아파트)',
-  PRIMARY KEY (`단지번호`),
-  UNIQUE KEY `고객단지_un` (`관리번호`),
-  KEY `고객단지_관리번호_IDX` (`관리번호`) USING BTREE,
-  CONSTRAINT `고객단지_FK` FOREIGN KEY (`관리번호`) REFERENCES `도로명주소` (`관리번호`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `단지주소`
---
-
-LOCK TABLES `단지주소` WRITE;
-/*!40000 ALTER TABLE `단지주소` DISABLE KEYS */;
-INSERT INTO `단지주소` VALUES
-(6,4111513400100110009010414,NULL,'경기도 수원시 팔달구 덕영대로 899(매산로1가)'),
-(9,4111513400100110004010364,NULL,'경기도 수원시 팔달구 덕영대로 897-1(매산로1가)'),
-(10,4111513400100100000010362,NULL,'경기도 수원시 팔달구 덕영대로895번길 8(매산로1가)'),
-(11,4111512000100050001011066,16257,'매미소리'),
-(16,4111513800100620002007504,16440,'경기도 수원시 팔달구 팔달로120번길 30(화서동,명진빌라)'),
-(17,4111513400101110023010418,16257,'입추공기');
-/*!40000 ALTER TABLE `단지주소` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `도로명주소`
 --
 
@@ -30326,4 +30291,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-31 20:24:14
+-- Dump completed on 2022-12-31 23:16:59
